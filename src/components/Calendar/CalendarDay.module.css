@@ -1,0 +1,153 @@
+.day {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.content {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+}
+
+/* Days are faded with opacity on their contents rather than on the day itself
+   so the grid lines and the "+X More" button keep their full color */
+.nonMonthDay .content {
+  background-color: color-mix(
+    in srgb,
+    var(--out-of-month-day-bg) 50%,
+    transparent
+  );
+}
+
+.nonMonthDay.pastDay .content {
+  background-color: color-mix(
+    in srgb,
+    var(--out-of-month-day-bg) 25%,
+    transparent
+  );
+}
+
+.pastDay .header,
+.pastDay .eventList {
+  opacity: 0.5;
+}
+
+.header {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.weekName {
+  color: var(--week-name-color);
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.dayNumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  font-size: 0.875rem;
+}
+
+.dayNumber.today {
+  background-color: var(--today-bg);
+  color: var(--today-text-color);
+}
+
+/* Only shown while the day is hovered or the button has keyboard focus */
+.addEventBtn {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-color);
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.day:hover .addEventBtn,
+.addEventBtn:focus-visible {
+  opacity: 1;
+}
+
+.addEventBtn:hover {
+  background-color: var(--btn-hover-bg);
+}
+
+/* Touch screens cannot hover, so always show the button there */
+@media (hover: none) {
+  .addEventBtn {
+    opacity: 1;
+  }
+}
+
+/* Its size comes from the grid, never from its content, so it can be
+   measured to work out how many events fit */
+.events {
+  flex-grow: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+.eventList {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.viewMoreBtn {
+  flex-shrink: 0;
+  margin-top: auto;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background: none;
+  color: var(--view-more-color);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.viewMoreBtn:hover {
+  background-color: var(--btn-hover-bg);
+}
+
+.viewMoreBtn:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: -2px;
+}

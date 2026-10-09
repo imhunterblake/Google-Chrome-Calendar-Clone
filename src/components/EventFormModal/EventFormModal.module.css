@@ -1,0 +1,75 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.formGroup > label,
+.formGroup > legend,
+.checkboxGroup > label {
+  padding: 0;
+  color: var(--form-label-color);
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.formGroup > input {
+  padding: 0.2rem;
+  font: inherit;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.error {
+  margin: 0.25rem 0 0;
+  color: var(--error-text-color);
+  font-size: 0.75rem;
+}
+
+.colors {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.colorSwatch {
+  appearance: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: 0;
+  border-radius: 0.25rem;
+  background-color: var(--event-color);
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.colorSwatch:checked {
+  opacity: 1;
+}
+
+.colorSwatch:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+.actionBtn {
+  flex-grow: 1;
+}

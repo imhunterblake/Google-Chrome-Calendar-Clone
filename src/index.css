@@ -1,0 +1,70 @@
+:root {
+  --red-event-color: hsl(0, 75%, 60%);
+  --blue-event-color: hsl(200, 80%, 50%);
+  --green-event-color: hsl(150, 80%, 30%);
+
+  --text-color: #333;
+  --border-color: #dadce0;
+  --btn-hover-bg: #f1f3f4;
+  --out-of-month-day-bg: #dadce0;
+  --week-name-color: #777;
+  --today-bg: hsl(200, 80%, 50%);
+  --today-text-color: white;
+  --all-day-event-text-color: white;
+  --timed-event-time-color: #777;
+  --modal-date-color: #555;
+  --form-label-color: #777;
+  --view-more-color: #555;
+  --error-text-color: hsl(0, 75%, 40%);
+
+  --delete-color: hsl(0, 75%, 60%);
+  --delete-bg: hsl(0, 75%, 95%);
+  --delete-text-color: hsl(0, 75%, 10%);
+  --delete-hover-bg: hsl(0, 75%, 90%);
+
+  --success-color: hsl(150, 80%, 30%);
+  --success-bg: hsl(150, 80%, 95%);
+  --success-text-color: hsl(150, 80%, 10%);
+  --success-hover-bg: hsl(150, 80%, 90%);
+
+  --modal-backdrop-color: rgba(0, 0, 0, 0.5);
+  --modal-animation-duration: 250ms;
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: white;
+}
+
+[data-color="red"] {
+  --event-color: var(--red-event-color);
+}
+
+[data-color="green"] {
+  --event-color: var(--green-event-color);
+}
+
+[data-color="blue"] {
+  --event-color: var(--blue-event-color);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

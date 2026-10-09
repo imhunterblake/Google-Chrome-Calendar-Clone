@@ -1,0 +1,33 @@
+.btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--btn-border-color);
+  border-radius: 0.25rem;
+  background-color: var(--btn-bg);
+  color: var(--btn-text-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover-bg);
+}
+
+.default {
+  --btn-border-color: var(--border-color);
+  --btn-bg: white;
+  --btn-text-color: var(--text-color);
+}
+
+.success {
+  --btn-border-color: var(--success-color);
+  --btn-bg: var(--success-bg);
+  --btn-hover-bg: var(--success-hover-bg);
+  --btn-text-color: var(--success-text-color);
+}
+
+.delete {
+  --btn-border-color: var(--delete-color);
+  --btn-bg: var(--delete-bg);
+  --btn-hover-bg: var(--delete-hover-bg);
+  --btn-text-color: var(--delete-text-color);
+}

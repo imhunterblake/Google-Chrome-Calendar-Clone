@@ -1,0 +1,97 @@
+.modal {
+  width: 300px;
+  max-width: calc(100vw - 2rem);
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+  animation: modal-in var(--modal-animation-duration) ease-out;
+}
+
+.modal::backdrop {
+  background-color: var(--modal-backdrop-color);
+  animation: fade-in var(--modal-animation-duration) ease-out;
+}
+
+.modal.closing {
+  animation: modal-out var(--modal-animation-duration) ease-in forwards;
+}
+
+.modal.closing::backdrop {
+  animation: fade-out var(--modal-animation-duration) ease-in forwards;
+}
+
+.body {
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.title {
+  margin: 0;
+  font-size: inherit;
+  font-weight: normal;
+}
+
+.date {
+  font-size: smaller;
+  color: var(--modal-date-color);
+}
+
+.closeBtn {
+  padding: 0 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background: none;
+  color: var(--text-color);
+  font-size: inherit;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  background-color: var(--btn-hover-bg);
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes modal-out {
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Keep a fade (instead of removing the animation) so the modal still
+   unmounts when its closing animation ends */
+@media (prefers-reduced-motion: reduce) {
+  .modal {
+    animation-name: fade-in;
+  }
+
+  .modal.closing {
+    animation-name: fade-out;
+  }
+}

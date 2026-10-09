@@ -1,0 +1,48 @@
+.event {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 0.25rem;
+  background: none;
+  font: inherit;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Inset so the outline is not clipped by the day's overflow: hidden */
+.event:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: -2px;
+}
+
+.allDay {
+  padding: 0.15rem 0.25rem;
+  background-color: var(--event-color);
+  color: var(--all-day-event-text-color);
+}
+
+.timed:hover {
+  background-color: var(--btn-hover-bg);
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--event-color);
+}
+
+.time {
+  flex-shrink: 0;
+  color: var(--timed-event-time-color);
+}
+
+.name {
+  overflow: hidden;
+}
